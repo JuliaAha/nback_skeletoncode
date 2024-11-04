@@ -35,6 +35,7 @@ import mobappdev.example.nback_cimpl.data.UserPreferencesRepository
 
 
 interface GameViewModel {
+    val eventValues: StateFlow<List<Int>> // Corrected type
     val gameState: StateFlow<GameState>
     val score: StateFlow<Int>
     val highscore: StateFlow<Int>
@@ -42,7 +43,6 @@ interface GameViewModel {
 
     fun setGameType(gameType: GameType)
     fun startGame()
-
     fun checkMatch()
 }
 
@@ -64,6 +64,10 @@ class GameVM(
     // nBack is currently hardcoded
     override val nBack: Int = 2
 
+    private val _eventValues = MutableStateFlow<List<Int>>(emptyList())
+    override val eventValues: StateFlow<List<Int>> = _eventValues.asStateFlow()
+
+
     private var job: Job? = null  // coroutine job for the game event
     private val eventInterval: Long = 2000L  // 2000 ms (2s)
 
@@ -76,6 +80,7 @@ class GameVM(
     }
 
     override fun startGame() {
+        //Log.d("GameVM", "Start Game button clicked")
         job?.cancel()  // Cancel any existing game loop
 
         // Get the events from our C-model (returns IntArray, so we need to convert to Array<Int>)
@@ -93,12 +98,22 @@ class GameVM(
     }
 
     override fun checkMatch() {
+        val currentPos = gameState.value.eventValue
+        val matchCondition = currentPos >= 0 && events.isNotEmpty() && events[currentPos] == currentPos // Example condition
+
+        if (matchCondition) {
+            _score.value += 1
+            _gameState.value = gameState.value.copy(feedback = "Correct match!")
+        } else {
+            _gameState.value = gameState.value.copy(feedback = "No match!")
+        }
         /**
          * Todo: This function should check if there is a match when the user presses a match button
          * Make sure the user can only register a match once for each event.
          */
     }
     private fun runAudioGame() {
+        Log.d("GameVM", "Audio game started")
         // Todo: Make work for Basic grade
     }
 
@@ -106,6 +121,7 @@ class GameVM(
         // Todo: Replace this code for actual game code
         for (value in events) {
             _gameState.value = _gameState.value.copy(eventValue = value)
+            _eventValues.value = _eventValues.value + value // Add the event value to the list
             delay(eventInterval)
         }
 
@@ -144,10 +160,13 @@ enum class GameType{
 data class GameState(
     // You can use this state to push values from the VM to your UI.
     val gameType: GameType = GameType.Visual,  // Type of the game
-    val eventValue: Int = -1  // The value of the array string
+    val eventValue: Int = -1,  // The value of the array string
+    val feedback: String = ""
 )
 
 class FakeVM: GameViewModel{
+    override val eventValues: StateFlow<List<Int>>
+        get() = MutableStateFlow(listOf(1, 2, 3)) // Example values for testing
     override val gameState: StateFlow<GameState>
         get() = MutableStateFlow(GameState()).asStateFlow()
     override val score: StateFlow<Int>

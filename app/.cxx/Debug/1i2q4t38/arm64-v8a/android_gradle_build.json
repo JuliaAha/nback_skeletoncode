@@ -1,0 +1,47 @@
+{
+  "buildFiles": [
+    "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/julialoflandgustafsson/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+      "-C",
+      "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/julialoflandgustafsson/Library/Android/sdk/cmake/3.22.1/bin/ninja",
+    "-C",
+    "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "JniBridge::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "JniBridge",
+      "output": "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libJniBridge.so",
+      "runtimeFiles": [
+        "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libnback_cimpl.so"
+      ]
+    },
+    "nback_cimpl::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "nback_cimpl",
+      "output": "/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libnback_cimpl.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/julialoflandgustafsson/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/julialoflandgustafsson/Library/Android/sdk/ndk/25.1.8937393/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

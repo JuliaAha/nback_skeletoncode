@@ -1,0 +1,4 @@
+/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/x86/CMakeFiles/nback_cimpl.dir
+/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/x86/CMakeFiles/JniBridge.dir
+/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/x86/CMakeFiles/edit_cache.dir
+/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/.cxx/Debug/1i2q4t38/x86/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,6 @@
 package mobappdev.example.nback_cimpl.ui.screens
 
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -32,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import mobappdev.example.nback_cimpl.R
 import mobappdev.example.nback_cimpl.ui.viewmodels.FakeVM
+import mobappdev.example.nback_cimpl.ui.viewmodels.GameType
 import mobappdev.example.nback_cimpl.ui.viewmodels.GameViewModel
 
 /**
@@ -53,6 +55,7 @@ fun HomeScreen(
 ) {
     val highscore by vm.highscore.collectAsState()  // Highscore is its own StateFlow
     val gameState by vm.gameState.collectAsState()
+    val currentEventValues by vm.eventValues.collectAsState()  // Collect the event values list
     val snackBarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -87,6 +90,12 @@ fun HomeScreen(
                             textAlign = TextAlign.Center
                         )
                     }
+                    Text(
+                         text = "Generated Event Values: $currentEventValues",
+                         textAlign = TextAlign.Center,
+                         modifier = Modifier.fillMaxWidth()
+                    )
+
                     Button(onClick = vm::startGame) {
                         Text(text = "Generate eventValues")
                     }
@@ -105,12 +114,15 @@ fun HomeScreen(
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Button(onClick = {
+                    //Log.d("GameScreen", "Sound button clicked")
+                    vm.setGameType(GameType.Audio)
+                    vm.startGame()
                     // Todo: change this button behaviour
-                    scope.launch {
-                        snackBarHostState.showSnackbar(
-                            message = "Hey! you clicked the audio button"
-                        )
-                    }
+//                    scope.launch {
+//                        snackBarHostState.showSnackbar(
+//                            message = "Hey! you clicked the audio button"
+//                        )
+//                    }
                 }) {
                     Icon(
                         painter = painterResource(id = R.drawable.sound_on),
@@ -123,12 +135,15 @@ fun HomeScreen(
                 Button(
                     onClick = {
                         // Todo: change this button behaviour
-                        scope.launch {
-                            snackBarHostState.showSnackbar(
-                                message = "Hey! you clicked the visual button",
-                                duration = SnackbarDuration.Short
-                            )
-                        }
+
+                        vm.setGameType(GameType.Visual) // Set the game type to Visual
+                        vm.startGame()
+//                        scope.launch {
+//                            snackBarHostState.showSnackbar(
+//                                message = "Hey! you clicked the visual button",
+//                                duration = SnackbarDuration.Short
+//                            )
+//                        }
                     }) {
                     Icon(
                         painter = painterResource(id = R.drawable.visual),

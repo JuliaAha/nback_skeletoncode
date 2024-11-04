@@ -1,0 +1,13 @@
+# ninja log v5
+0	1191	1730715537144835779	CMakeFiles/nback_cimpl.dir/nback.c.o	6d09903761374b43
+3	1198	1730715537148790725	CMakeFiles/JniBridge.dir/JniBridge.c.o	d5b89a4db04d9c5c
+1194	1934	1730715537888564127	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libnback_cimpl.so	8671a9480576bb3c
+1934	2170	1730715538112522414	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libJniBridge.so	2be9bd218ae7c9b9
+10	853	1730719399193019371	CMakeFiles/JniBridge.dir/JniBridge.c.o	d5b89a4db04d9c5c
+7	938	1730719399275487450	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libnback_cimpl.so	8671a9480576bb3c
+938	1064	1730719399405098546	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libJniBridge.so	2be9bd218ae7c9b9
+0	38	0	clean	7d9d1670f4f0cf76
+3	1410	1730728816234314435	CMakeFiles/JniBridge.dir/JniBridge.c.o	d5b89a4db04d9c5c
+1	1421	1730728816255722051	CMakeFiles/nback_cimpl.dir/nback.c.o	6d09903761374b43
+1421	2468	1730728817295679253	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libnback_cimpl.so	8671a9480576bb3c
+2468	2664	1730728817493413922	/Users/julialoflandgustafsson/Documents/GitHub/nback_skeletoncode/app/build/intermediates/cxx/Debug/1i2q4t38/obj/arm64-v8a/libJniBridge.so	2be9bd218ae7c9b9
